@@ -1,0 +1,9 @@
+{
+  "name": "feature-todo",
+  "$schema": "../../../node_modules/nx/schemas/project-schema.json",
+  "sourceRoot": "libs/feature/todo/src",
+  "prefix": "webapp",
+  "tags": [],
+  "projectType": "library",
+  "targets": {}
+}
