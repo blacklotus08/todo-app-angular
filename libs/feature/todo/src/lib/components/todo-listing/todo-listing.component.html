@@ -27,7 +27,7 @@
                     <div class="footer">
                         <div class="flex justify-content-end">
                             <button type="button" pButton class="mr-2">Edit</button>
-                            <button type="button" pButton class="p-button-danger">Delete</button>
+                            <button type="button" pButton class="p-button-danger" (click)="deleteTodo(todo.id)">Delete</button>
                         </div>
                     </div>
                 </div>
@@ -35,3 +35,9 @@
         </div>
     </ng-container>
 </div>
+<p-toast position="top-right" [baseZIndex]="10000"></p-toast>
+<p-confirmDialog
+    header="Confirmation"
+    icon="pi pi-exclamation-triangle"
+    width="425"
+></p-confirmDialog>

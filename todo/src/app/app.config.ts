@@ -3,7 +3,7 @@ import { provideRouter, withEnabledBlockingInitialNavigation } from '@angular/ro
 import { appRoutes } from './app.routes';
 import { HttpClientModule } from '@angular/common/http';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { MessageService } from 'primeng/api';
+import { ConfirmationService, MessageService } from 'primeng/api';
 import { DialogService } from 'primeng/dynamicdialog';
 
 export const appConfig: ApplicationConfig = {
@@ -13,7 +13,6 @@ export const appConfig: ApplicationConfig = {
       HttpClientModule,
       BrowserAnimationsModule,
     ),
-    MessageService,
-    DialogService
+    DialogService, MessageService, ConfirmationService
   ],
 };

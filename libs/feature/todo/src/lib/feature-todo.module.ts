@@ -10,10 +10,13 @@ import { InputTextModule } from 'primeng/inputtext';
 import { InputTextareaModule } from 'primeng/inputtextarea';
 import { DropdownModule } from 'primeng/dropdown';
 import { InputNumberModule } from 'primeng/inputnumber';
+import { DialogService, DynamicDialogModule } from 'primeng/dynamicdialog';
+import { ConfirmDialogModule } from 'primeng/confirmdialog';
 
 import { TodoListingComponent } from './components/todo-listing/todo-listing.component';
 import { CreateTodoComponent } from './components/create-todo/create-todo.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { ConfirmationService } from 'primeng/api';
 
 @NgModule({
   imports: [CommonModule, 
@@ -28,7 +31,13 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
     InputTextModule,
     InputTextareaModule,
     DropdownModule,
-    InputNumberModule
+    InputNumberModule,
+    DynamicDialogModule,
+    ConfirmDialogModule
+  ],
+  providers:[
+    DialogService,
+    ConfirmationService
   ],
   declarations: [TodoListingComponent, CreateTodoComponent],
 })

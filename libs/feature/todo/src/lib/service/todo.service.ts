@@ -26,4 +26,8 @@ export class TodoService {
   createNewTodo(payload: any) {
     return this.http.post<any>(this.baseUrl + 'todos', payload)
   }
+
+  deleteTodo(id: any) {
+    return this.http.delete<any>(this.baseUrl + 'todos/' + id)
+  }
 }
