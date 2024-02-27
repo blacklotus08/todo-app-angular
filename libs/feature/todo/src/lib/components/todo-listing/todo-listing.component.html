@@ -1,8 +1,37 @@
-<div class="container">
-    <p-panel header="Header">
-        <p>
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-            consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-        </p>
-    </p-panel>
+<div class="header-buttons">
+    <div class="flex justify-content-end">
+        <button type="button" pButton class="my-2">Add New Todo</button>
+    </div>
+</div>
+<div class="container" *ngIf="todoList">
+    <ng-container *ngFor="let todo of todoList">
+        <div class="content my-2">
+            <p-panel header="{{ todo.taskName }}">
+                <div class="content">
+                    <div class="col-12 header">
+                        <div class="flex justify-content-end">
+                            {{ todo.dueDate | date }}
+                        </div>
+                    </div>
+                    <div class="description">
+                        <p>
+                            {{ todo.description }}
+                        </p>
+                        <p>
+                            Priority: {{ todo.priority }}
+                        </p>
+                        <p>
+                            Status: {{ todo.status }}
+                        </p>
+                    </div>
+                    <div class="footer">
+                        <div class="flex justify-content-end">
+                            <button type="button" pButton class="mr-2">Edit</button>
+                            <button type="button" pButton class="p-button-danger">Delete</button>
+                        </div>
+                    </div>
+                </div>
+            </p-panel>
+        </div>
+    </ng-container>
 </div>

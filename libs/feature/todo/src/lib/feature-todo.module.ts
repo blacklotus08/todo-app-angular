@@ -3,6 +3,11 @@ import { CommonModule } from '@angular/common';
 import { RouterModule } from '@angular/router';
 import { featureTodoRoutes } from './lib.routes';
 import { PanelModule } from 'primeng/panel';
+import { ButtonModule } from 'primeng/button';
+import { CalendarModule } from 'primeng/calendar';
+import { ToastModule } from 'primeng/toast';
+import { InputTextModule } from 'primeng/inputtext';
+import { InputTextareaModule } from 'primeng/inputtextarea';
 
 
 import { TodoListingComponent } from './components/todo-listing/todo-listing.component';
@@ -15,7 +20,12 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
     CommonModule,
     FormsModule,
     ReactiveFormsModule,
-    PanelModule
+    PanelModule,
+    ButtonModule,
+    CalendarModule,
+    ToastModule,
+    InputTextModule,
+    InputTextareaModule
   ],
   declarations: [TodoListingComponent, CreateTodoComponent],
 })
