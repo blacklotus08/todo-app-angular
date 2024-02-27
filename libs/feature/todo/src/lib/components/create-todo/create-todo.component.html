@@ -1,1 +1,30 @@
-<p>create-todo works!</p>
+<div [formGroup]="form">
+    <div class="col-12">
+        <div class="grid formgrid p-fluid">
+            <div class="field col-12">
+                <label class="d-block">Task Name</label>
+                <input type="text" pInputText formControlName="taskName"/>
+            </div>
+            <div class="field col-12">
+                <label class="d-block">Description</label>
+                <input type="text" pInputText formControlName="description"/>
+            </div>
+            <div class="field col-12">
+                <label class="d-block">Due Date</label>
+                <p-calendar formControlName="dueDate" [showIcon]="true"></p-calendar>
+            </div>
+            <div class="field col-12">
+                <label class="d-block">Status</label>
+                <p-dropdown formControlName="status" [options]="statusOptions" optionValue="value" optionLabel="name" [filter]="true" filterBy="name"></p-dropdown>
+            </div>
+            <div class="field col-12">
+                <label class="d-block">Priority</label>
+                <p-inputNumber formControlName="priority" mode="decimal" [min]="1" [max]="5"> </p-inputNumber>
+            </div>
+        </div>
+        <div class="col-12 flex justify-content-end">
+            <button type="button" pButton class="mr-2" (click)="save()">Save</button>
+            <button type="button" pButton class="p-button-secondary" (click)="cancel()">Cancel</button>
+        </div>
+    </div>
+</div>

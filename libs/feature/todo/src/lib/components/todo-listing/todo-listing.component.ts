@@ -2,6 +2,8 @@ import { ChangeDetectionStrategy, ChangeDetectorRef, Component, OnInit } from '@
 import { TodoService } from '../../service/todo.service';
 import { take, tap } from 'rxjs';
 import { Todo } from '../../models/todo.model';
+import { CreateTodoComponent } from '../create-todo/create-todo.component';
+import { DialogService, DynamicDialogRef } from 'primeng/dynamicdialog';
 
 @Component({
   selector: 'webapp-todo-listing',
@@ -10,8 +12,12 @@ import { Todo } from '../../models/todo.model';
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class TodoListingComponent implements OnInit {
-  constructor(private todoService: TodoService, private cdf: ChangeDetectorRef) {
-  }
+  ref: DynamicDialogRef | undefined;
+  constructor(
+    private todoService: TodoService, 
+    private cdf: ChangeDetectorRef, 
+    private dialogService: DialogService
+  ) {}
 
   //#region Private Variables
   private _todoList:Todo[] = [];
@@ -24,10 +30,31 @@ export class TodoListingComponent implements OnInit {
   //#endregion 
 
   ngOnInit(): void {
-      this.todoService.getAllTodo().pipe(
-        take(1),
-        tap((result)=> this._todoList = result)
-      ).subscribe(()=> this.cdf.detectChanges());
+
+  }
+
+    //#region Public Methods
+  addNewTodo() {
+      this.ref = this.dialogService.open(CreateTodoComponent, {
+        header: 'Create New Todo',
+        width: '30%',
+        contentStyle: { overflow: 'hidden' },
+        baseZIndex: 10000,
+        data: null
+      });
+  
+      this.ref.onClose.subscribe((data) => {
+        if (data) {
+          console.log(data);
+        }
+      });
+  }
+  
+  fetchTodoList() {
+    this.todoService.getAllTodo().pipe(
+      take(1),
+      tap((result)=> this._todoList = result)
+    ).subscribe(()=> this.cdf.detectChanges());
   }
   
 }

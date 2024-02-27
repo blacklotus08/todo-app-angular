@@ -8,7 +8,8 @@ import { CalendarModule } from 'primeng/calendar';
 import { ToastModule } from 'primeng/toast';
 import { InputTextModule } from 'primeng/inputtext';
 import { InputTextareaModule } from 'primeng/inputtextarea';
-
+import { DropdownModule } from 'primeng/dropdown';
+import { InputNumberModule } from 'primeng/inputnumber';
 
 import { TodoListingComponent } from './components/todo-listing/todo-listing.component';
 import { CreateTodoComponent } from './components/create-todo/create-todo.component';
@@ -25,7 +26,9 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
     CalendarModule,
     ToastModule,
     InputTextModule,
-    InputTextareaModule
+    InputTextareaModule,
+    DropdownModule,
+    InputNumberModule
   ],
   declarations: [TodoListingComponent, CreateTodoComponent],
 })
