@@ -22,4 +22,8 @@ export class TodoService {
       })
     )
   }
+
+  createNewTodo(payload: any) {
+    return this.http.post<any>(this.baseUrl + 'todos', payload)
+  }
 }

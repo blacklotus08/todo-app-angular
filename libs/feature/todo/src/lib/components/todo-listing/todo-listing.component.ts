@@ -30,22 +30,27 @@ export class TodoListingComponent implements OnInit {
   //#endregion 
 
   ngOnInit(): void {
-
+    // Get List of Todo List
+    this.fetchTodoList();
   }
 
     //#region Public Methods
   addNewTodo() {
       this.ref = this.dialogService.open(CreateTodoComponent, {
         header: 'Create New Todo',
-        width: '30%',
-        contentStyle: { overflow: 'hidden' },
+        width: '50%',
+        contentStyle: { overflow: 'visible' },
         baseZIndex: 10000,
         data: null
       });
   
       this.ref.onClose.subscribe((data) => {
         if (data) {
-          console.log(data);
+          this.todoService.createNewTodo(data).subscribe((result)=>{
+            if (result && result.id) {
+              this.fetchTodoList();
+            }
+          });
         }
       });
   }
