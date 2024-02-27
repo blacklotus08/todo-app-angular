@@ -78,6 +78,29 @@ export class TodoListingComponent implements OnInit {
     });
   }
 
+  updateTodo(todo: Todo) {
+    this.ref = this.dialogService.open(CreateTodoComponent, {
+      header: 'Update Todo',
+      width: '50%',
+      contentStyle: { overflow: 'visible' },
+      baseZIndex: 10000,
+      data: todo,
+    });
+
+    this.ref.onClose.subscribe((data) => {
+      if (data) {
+        this.todoService.updateTodo(data, todo.id).subscribe(() => {
+          this.toastService.showSuccess({
+            summary: 'Success',
+            content:
+              'Record successfully updated.',
+          });
+          this.fetchTodoList();
+        });
+      }
+    });
+  }
+
   deleteTodo(id: string) {
     this.confirmationService.confirm({
       message: 'Are you sure you want to delete this record?',

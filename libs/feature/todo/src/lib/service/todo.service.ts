@@ -27,6 +27,10 @@ export class TodoService {
     return this.http.post<any>(this.baseUrl + 'todos', payload)
   }
 
+  updateTodo(payload: any, id: string) {
+    return this.http.patch<any>(this.baseUrl + 'todos/' + id, payload)
+  }
+
   deleteTodo(id: any) {
     return this.http.delete<any>(this.baseUrl + 'todos/' + id)
   }

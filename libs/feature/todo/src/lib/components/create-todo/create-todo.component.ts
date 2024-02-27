@@ -31,7 +31,10 @@ export class CreateTodoComponent {
       priority: new FormControl(1, Validators.required),
     });
     if (this.dialogConfig.data) {
-      this.form.patchValue(this.dialogConfig.data);
+      this.form.patchValue({
+        ...this.dialogConfig.data,
+        dueDate: new Date(this.dialogConfig.data.dueDate)
+      });
     }
   }
   

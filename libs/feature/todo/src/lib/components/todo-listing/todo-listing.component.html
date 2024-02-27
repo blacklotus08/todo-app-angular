@@ -26,7 +26,7 @@
                     </div>
                     <div class="footer">
                         <div class="flex justify-content-end">
-                            <button type="button" pButton class="mr-2">Edit</button>
+                            <button type="button" pButton class="mr-2" (click)="updateTodo(todo)">Edit</button>
                             <button type="button" pButton class="p-button-danger" (click)="deleteTodo(todo.id)">Delete</button>
                         </div>
                     </div>
